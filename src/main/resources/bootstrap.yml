@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: ai-qiyue-server
+server:
+  port: 7000
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${spring.application.name}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 20000
